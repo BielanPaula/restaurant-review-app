@@ -1,5 +1,5 @@
 # Introduction
-
+The project aimed to transform a static application into a mobile application. To this end, I created the service_worker.js file. I added responsiveness and I implement accessibility features.
 # To run
 - Clone this repository to your desktop
 - Open the root folder of the repository in a terminal
