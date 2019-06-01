@@ -20,14 +20,6 @@ const urlsToCache = [
   './img/10.jpg'
 ];
 
-//Install a service worker
-// self.addEventListener('install', function(event) {
-//   event.waitUntil(
-//     caches.open(CACHE_NAME).then(function(cache) {
-//         return cache.addAll(urlsToCache);
-//       })
-//   );
-// });
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -36,21 +28,6 @@ self.addEventListener('install', function(event) {
       })
   );
 });
-
-//Update a service worker
-// self.addEventListener('activate', function(event) {
-//     event.waitUntil(
-//         caches.keys().then(function(cacheNames) => {
-//             return Promise.all(
-//                 cacheNames.filter(function(cacheName) {
-//                     return cacheName.startsWith('review-') && cacheName != CACHE_NAME;
-//                 }).map(function(cacheName) {
-//                     return caches.delete(cacheName);
-//                 })
-//             );
-//         })
-//     );
-// });
 
 self.addEventListener('activate', function (event) {
     event.waitUntil(
@@ -68,21 +45,6 @@ self.addEventListener('activate', function (event) {
     );
 });
 
-
-
-
-//Cache and return requests
-// self.addEventListener('fetch', function(event) {
-// 	  event.respondWith(
-// 	    	caches.match(event.request).then(function(response) {
-// 		        if (response) {
-// 		          	return response;
-// 		        }
-// 		        return fetch(event.request);
-// 	      }
-// 	    	)
-// 	  );
-// });
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request)
